@@ -1,26 +1,24 @@
 #!/bin/python
-def isPanDigital(w):
-	v = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
-	s = ''+w
-	s = sorted(s)
-	return s == v
-def GetSomaString(w):
-	soma =0
-	for i in w:
-		soma += int(i)
-	return soma
-maior = -1
-for i in range(1,20000):
-	cont = 1
-	som = 0
-	s = ''
-	while(som<45):
-		m = i * cont
-		s = s + str(m)
-		som += GetSomaString(str(m))
-		cont+=1
-		if(som==45 and isPanDigital(s)):
-			if(int(s)>maior):
-				maior=int(s)
-				print(i,som,s)
-print(maior) #932718654
+import sympy
+def isTruncable(n):
+	aux = ''+str(n)
+	while(len(aux) > 1):
+		aux = aux[1:]
+		if(not sympy.isprime(int(aux))):
+			return False
+	aux = ''+str(n)
+	while(len(aux) > 1):
+		aux = aux[:-1]
+		if(not sympy.isprime(int(aux))):
+			return False
+	return True
+v = []
+x = 7
+count = 0
+while(count<11):
+	x = sympy.nextprime(x)
+	if(isTruncable(x)):
+		v.append(x)
+		count += 1
+print(sum(v))
+	
