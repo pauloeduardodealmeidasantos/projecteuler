@@ -3,32 +3,33 @@ from sympy import *
 import sys
 import sympy
 import math
-def MaiorSubLista(sublista,n):
-	for j in range(0,len(sublista)):
-		pList = sublista[j:]
-		s = sum(pList)
-		c = maior
-		while(len(pList) > maior and s > n):
-			pList = pList[:-1]
-			s = sum(pList)
-			c+=1
-		if(s==n):
-			return len(pList)
-	return -1
-pot = 2
-maior = -1
-lstprimerange = list(sieve.primerange(2,10**pot))
-for position in range(len(lstprimerange)-1,3,-1):
-	print('##########################################')
-	print(lstprimerange[position])
-	print('##########################################')
-	limit = int((lstprimerange[position]+1)/2)
-	sublist = list(filter(lambda x: x < limit, lstprimerange))
-	while(sublist[-1]+sublist[-2] > lstprimerange[position] and sum(sublist) <= lstprimerange[position]):
-		limit = int((sublist[-1]+1)/2)
-		sublist = list(filter(lambda x: x < limit, sublist))
-	ret = MaiorSubLista(sublist,lstprimerange[position])
-	if(ret > maior):
-		print(ret,lstprimerange[position])
-		maior = ret
+pot = 6
+maior = 65
+maximo = 10**pot
+lst = list()
+lstprimerange = list(sieve.primerange(2,maximo))
+for position in range(0,len(lstprimerange)):
+	limDivisor = int((lstprimerange[position]+1)/2)
+	sublist = list(filter(lambda x: x <= limDivisor, lstprimerange))
+	if(sum(sublist) <= maximo and len(sublist) > maior):
+		lst.append(sublist)
+		if(sympy.isprime(sum(sublist)) and len(sublist) > maior):
+			maior = len(sublist)
+lst = list(filter(lambda x: len(x) > maior, lst))
+while(len(lst)>1):
+	mlst = lst[-1]
+	for j in range(0,len(mlst)):
+		plst = mlst[j:]
+		s = sum(plst)
+		if(len(plst) > maior and sympy.isprime(s)):
+			maior=len(plst)
+			print('maior parcial::'+str(maior)+'prime:'+str(s))
+		while(len(plst) > maior):
+			plst = plst[:-1]
+			s = sum(plst)
+			if(len(plst) > maior and sympy.isprime(s)):
+				maior=len(plst)
+				print('maior parcial::'+str(maior)+'prime:'+str(s))
+	lst.remove(mlst)
+	lst=list(filter(lambda x: len(x) > maior, lst))
 print('maior::'+str(maior))
