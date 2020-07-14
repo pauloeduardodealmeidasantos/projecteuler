@@ -151,9 +151,7 @@ def GetRepeatedCard(h,n):
 				ret.append(i.value)
 	else:
 		ret.append(0)
-	#print(ret)
 	return ret
-#f = open("pk.txt", "r")
 f = open("p054_poker.txt", "r")
 count=0
 contaLinha=0
@@ -170,10 +168,6 @@ for line in f:
 		h2.add_card(Card(it[0],it[1]))
 	CalcOutcome(h1)
 	CalcOutcome(h2)
-	s="PLAYER 2"
 	if(CompareHands(h1,h2)):
 		count+=1
-		s="PLAYER 1"
-	if(h1.outcome==h2.outcome):
-		print("Linha: "+str(contaLinha)+" p1: "+str(h1.outcome)+" p2: "+str(h2.outcome)+" vencedor: "+s)
 print(count)
