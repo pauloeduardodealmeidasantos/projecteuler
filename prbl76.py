@@ -10,3 +10,4 @@ for i in range(0,len(sizes)):
 	for j in range(sizes[i],lim+1):
 		ways[j] += ways[j-sizes[i]]
 print(ways[lim])
+print(ways)
