@@ -44,7 +44,7 @@ def CalcSum(v,m,n,up):
 			menor = MenorDois(MenorDois(r,u),d)
 			cache[m][n]=menor+v[m][n]
 			return cache[m][n]
-			
+
 v=[]
 cache = []
 #f = open("mtx.txt", "r")

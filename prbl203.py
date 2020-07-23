@@ -4,7 +4,6 @@ import sympy
 import math
 lst=[]
 def squarefree(n):
-	#A positive integer n is called squarefree if no square of a prime divides n
 	primes=primerange(2,1+math.floor(math.sqrt(n)))
 	for p in primes:
 		if(n % (p*p) == 0):
@@ -24,9 +23,5 @@ def binomialCoeff(n, k) :
     return res 
 printPascal(51) 
 lst=list(set(lst))
-#primes = list(primerange(2,max(lst)))
-#primes = list([x*x for x in primes])
-#print(primes)
 sqfree = list(filter(lambda x: squarefree(x), lst))
-print(sqfree)
 print(sum(sqfree))
