@@ -29,6 +29,7 @@ for fline in f:
 # 7 nunca apareceu no meio e fim. começa com 7!
 # 0 nunca apareceu no meio e no começo. final 0!
 # 9 só aparece no meio seguido de 0. termina 90
+# meio que vai no olho e chega na solução comparando com repetição.
 #dic1=sorted(dic1.items(), key=lambda x: x[1], reverse=True)
 #dic2=sorted(dic2.items(), key=lambda x: x[1], reverse=True)
 #dic3=sorted(dic3.items(), key=lambda x: x[1], reverse=True)
