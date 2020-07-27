@@ -54,6 +54,7 @@ for fline in f:
 	lst.append(r)
 f.close()
 for r in lst:
+	#Note: You can assume that all the Roman numerals in the file contain no more than four consecutive identical units.
 	s=r.original.replace('DCCCC','YY').replace('LXXXX','YY').replace('VIIII','YY').replace('CCCC','YY').replace('XXXX','YY').replace('IIII','YY')
 	soma+=(len(r.original)-len(s))
 print(soma)
