@@ -1,19 +1,8 @@
-#!/bin/python
-import primefac
-import sys
-def ProperDivisors(n):
-	lst = list(primefac.primefac(n))
-	for i in range(1,len(lst)):
-		for j in lst[i:]:
-			if(n % (lst[i-1]*j) == 0):
-				lst.append(lst[i-1]*j)
-	while(n in lst):
-		lst.remove(n)
-	lst.append(1)
-	lst = set(lst)
-	return lst
+import sympy
 def SumProperDivisors(n):
-	return sum(ProperDivisors(n))
+	d = sympy.divisors(n)
+	s = sum(d) - n
+	return s
 uplim = 28123
 dwlim = 12
 abLst = []
