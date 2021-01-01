@@ -1,4 +1,3 @@
-#!/bin/python
 import multiprocessing
 from joblib import Parallel, delayed
 def CheckEven(n):
@@ -15,7 +14,7 @@ def IsReverseNumber(n):
 	else:
 		r=int(str(n)[::-1])
 		return CheckEven(r+n)
-lim=10**6
+lim=10**2
 num_cores = multiprocessing.cpu_count()
 chunk = 10**5
 i=0
