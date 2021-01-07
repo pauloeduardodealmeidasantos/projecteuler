@@ -1,6 +1,0 @@
-#cyberpsioutlookcom default
-cmd /K python "$(FULL_CURRENT_PATH)"
-import sys
-sys.path.append("C:/Users/paulo/Documents/ProjectEuler")
-from _str import *
-amicable 21
