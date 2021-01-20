@@ -41,8 +41,8 @@ v=[]
 cache = []
 import sys
 sys.setrecursionlimit(sys.getrecursionlimit()*10)
-#f = open("/home/paulo/src/projecteuler/mtx.txt", "r") #2297
-f = open("/home/paulo/src/projecteuler/p083_matrix.txt", "r") #425185
+f = open("/home/paulo/src/projecteuler/mtx.txt", "r") #2297
+#f = open("/home/paulo/src/projecteuler/p083_matrix.txt", "r") #425185
 for line in f:
 	aux=[]
 	aux1=[]
